@@ -1,4 +1,5 @@
 const {Schema, model} = require('mongoose');
+const bcrypt = require('bcrypt');
 
 
 const authSchema = new Schema({
@@ -14,8 +15,15 @@ const authSchema = new Schema({
     timestamps: true
 })
 
-authSchema.methods.encryPass = pass => {
-    
+authSchema.methods.encryPass = async pass => {
+    const salt = await bcrypt.genSalt(10);
+    return await bcrypt.hash(pass, salt);
 }
+
+authSchema.methods.decryPass = function(pass) {
+    return await bcrypt.compare(pass, this.pass);
+}
+
+
 
 module.exports = model('auth', authSchema);
