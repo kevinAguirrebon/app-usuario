@@ -1,6 +1,10 @@
 const {Schema, model} = require('mongoose');
 
 const userSchema = new Schema({
+    user_id:{
+        type: 'string',
+        require: true
+    },
     nombre: {
         type: 'string',
         require: true
@@ -21,4 +25,4 @@ const userSchema = new Schema({
     timestamps: true
 })
 
-module.exports = model('user', userSchema);
+module.exports = model('User', userSchema);

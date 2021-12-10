@@ -1,0 +1,21 @@
+<h2 class="text-blanco">Todos los Usuarios</h2>
+<div class="card col-sm-5">
+    <div class="card-body">
+        <table class="table table table-hover">
+        <thead>
+            <th>Id</th>
+            <th>Usuario</th>
+        </thead>
+        <tbody>
+                {{#each users}}
+                    <tr onclick="detalle(1)">
+                        <td>{{user_id}}</td>
+                        <td>{{usuario}}</td>
+                    </tr>
+                {{/each}}
+        </tbody>
+        </table>
+    </div>
+</div>
+
+ 

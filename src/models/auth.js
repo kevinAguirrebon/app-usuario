@@ -26,4 +26,4 @@ authSchema.methods.decryPass = function(pass) {
 
 
 
-module.exports = model('auth', authSchema);
+module.exports = model('Auth', authSchema);

@@ -2,12 +2,14 @@ const express = require('express');
 const { engine }  = require('express-handlebars');
 const path = require('path');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 require('dotenv').config();
 require('./database');
 const app = express();
 
 
 app.use(morgan('dev'));
+app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.set('port', process.env.PORT || 3000);

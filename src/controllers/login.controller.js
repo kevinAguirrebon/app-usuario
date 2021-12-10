@@ -1,7 +1,7 @@
 //vistas
 
 const renderIndex = (req,res) => {
-    res.render('index');
+    res.render('login');
 }
 
 const renderRegister = (req,res) => {
