@@ -5,3 +5,17 @@ body{
 .text-blanco{
     color: #fff
 }
+
+.text-flex{
+    display: flex;
+}
+
+.text-flex > p{
+    color: rgb(107, 107, 107);
+    margin-left: 5px;
+}
+
+.link_user{
+    text-decoration: none;
+    color: #000
+}

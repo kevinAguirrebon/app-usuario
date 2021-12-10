@@ -7,7 +7,7 @@ const authSchema = new Schema({
         type: 'string',
         require: true
     },
-    pass: {
+    password: {
         type: 'string',
         require: true
     },
@@ -15,15 +15,12 @@ const authSchema = new Schema({
     timestamps: true
 })
 
-authSchema.methods.encryPass = async pass => {
-    const salt = await bcrypt.genSalt(10);
-    return await bcrypt.hash(pass, salt);
+authSchema.methods.encryPass = pass => {
+    return bcrypt.hashSync(pass, bcrypt.genSaltSync(10));
 }
 
 authSchema.methods.decryPass = function(pass) {
-    return await bcrypt.compare(pass, this.pass);
+    return bcrypt.compareSync(pass, this.password);
 }
 
-
-
-module.exports = model('Auth', authSchema);
+module.exports = model('auths', authSchema);

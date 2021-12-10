@@ -4,21 +4,36 @@
             <h2>Crear usuario</h2>
         </div>
         <div class="card-body">
-            <form method="post" action="/user/new-user">
+            <form method="POST" action="/user/new-user">
                 <div class="input-group mb-3">
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre"></input>
+                    <label class="col-sm-3">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="ingresa tu nombre" value="{{ data.nombre }}" class="form-control"></input>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" name="apellido" class="form-control" placeholder="Apellido"></input>
+                    <label class="col-sm-3">Apellido:</label>
+                    <input type="text" name="apellido" id="apellido" placeholder="ingresa tu apellido" value="{{ data.apellido }}" class="form-control"></input>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" name="usuario" class="form-control" placeholder="Usuario"></input>
+                    <label class="col-sm-3">Usuario:</label>
+                    <input type="text" name="usuario" id="usuario" placeholder="ingresa nombre de usuario" value="{{ data.usuario }}" class="form-control"></input>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" name="correo" class="form-control" placeholder="Correo"></input>
+                    <label class="col-sm-3">Correo:</label>
+                    <input type="email" name="correo" id="correo" placeholder="ingresa tu email" value="{{ data.correo }}" class="form-control"></input>
                 </div>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="submit" class="btn btn-success mb-4" >Guardar</button>
             </form>
+            {{#if warning}}
+                <p class="alert alert-warning">{{ warning }}</p>
+            {{/if}}
+
+            {{#if errors }}
+                <ul class="alert alert-danger">
+                    {{#each errors }}
+                        <li class="mx-2">{{ this.msg }}</li>
+                    {{/each}}
+              </ul>
+            {{/if}}
         </div>
     </div>
 </div>

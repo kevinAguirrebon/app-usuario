@@ -1,1 +1,13 @@
-<p>user</p>
+
+<div class="card" style="width: 30rem;">
+<div class="card-header">
+    <h3>Detalle de usuario</h3>
+</div>
+  <div class="card-body">
+      <h5 class="text-flex">Usuario: <p>{{users.usuario}}</p></h5>
+      <h5 class="text-flex">Nombre: <p>{{users.nombre}}</p> </h5>
+      <h5 class="text-flex">Apellido: <p>{{users.apellido}}</p> </h5>
+    <h5 class="text-flex">Correo: <p>{{users.correo}}</p></h5>
+        <button class="btn btn-danger" onclick="eliminar('{{users._id}}')">Eliminar</button>
+  </div>
+</div>
